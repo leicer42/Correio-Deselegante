@@ -5,12 +5,12 @@ import logoImg from '../assets/images/logo.svg';
 import googleIconImg from '../assets/images/google-icon.svg';
 import '../styles/auth.scss';
 import '../styles/button.scss';
-import { authContext } from '../App';
+import { AuthContext } from '../contexts/AuthContext';
 
 export function Home() {
 
   const navigate = useNavigate();
-  const { user, signInWithGoogle } = useContext(authContext)
+  const { user, signInWithGoogle } = useContext(AuthContext)
 
   async function handleCreateRoom() {
     if (!user) {
