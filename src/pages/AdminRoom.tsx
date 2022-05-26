@@ -7,7 +7,8 @@ import { Question } from '../components/Question'
 import { database } from '../services/firebase';
 import { Button } from '../components/Button';
 
-
+import checkImg from '../assets/images/check.svg';
+import answerImg from '../assets/images/answer.svg';
 import logoImg from '../assets/images/logo.svg';
 import deleteImg from '../assets/images/delete.svg';
 import '../styles/room.scss';
@@ -38,6 +39,20 @@ export function AdminRoom() {
     }
   }
 
+  async function handleCheckQUestionAnswered(questionId: string) {
+    await database.ref(`rooms/${roomId}/questions/${questionId}`).update({
+      isAnswered: true,
+    });
+
+  }
+
+  async function handleHighLigthQuestion(questionId: string) {
+    await database.ref(`rooms/${roomId}/questions/${questionId}`).update({
+      isHighLighted: true,
+    });
+
+  }
+
   return (
     <div id="page-room">
       <header>
@@ -63,7 +78,27 @@ export function AdminRoom() {
                 key={question.id}
                 content={question.content}
                 author={question.author}
+                isAnswered={question.isAnswered}
+                isHighLighted={question.isHighLighted}
               >
+
+                {!question.isAnswered && (
+                  <>
+                    <button
+                      type="button"
+                      onClick={() => handleCheckQUestionAnswered(question.id)}
+                    >
+                      <img src={checkImg} alt="Marcar como respondida" />
+                    </button>
+
+                    <button
+                      type="button"
+                      onClick={() => handleHighLigthQuestion(question.id)}
+                    >
+                      <img src={answerImg} alt="Dar destaque ao recado" />
+                    </button>
+                  </>
+                )}
 
                 <button
                   type="button"
