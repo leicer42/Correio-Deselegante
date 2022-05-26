@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { FormEvent, useState } from 'react';
 import { database } from '../services/firebase';
 import { useNavigate } from 'react-router-dom';
+import { Button } from '../components/Button';
 
 
 import { useAuth } from '../hooks/useAuth';
@@ -63,9 +64,9 @@ export function NewRoom() {
               value={newRoom}
             />
 
-            <button className="button" type="submit">
+            <Button type="submit">
               Criar sala
-            </button>
+            </Button>
 
           </form>
 

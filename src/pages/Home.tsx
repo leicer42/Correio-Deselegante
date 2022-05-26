@@ -8,6 +8,8 @@ import '../styles/button.scss';
 
 import { AuthContext } from '../contexts/AuthContext';
 import { database } from '../services/firebase';
+import { Button } from '../components/Button';
+
 
 
 export function Home() {
@@ -37,7 +39,12 @@ export function Home() {
     const roomRef = await database.ref(`rooms/${roomCode}`).get();
 
     if (!roomRef.exists()) {
-      alert('Essa sala não existe :(');
+      alert('Room does not exist');
+      return;
+    }
+
+    if (roomRef.val().endedAt) {
+      alert('Room already closed');
       return;
     }
 
@@ -73,9 +80,9 @@ export function Home() {
               value={roomCode}
             />
 
-            <button className="button" type="submit">
+            <Button className="button" type="submit">
               Entrar na sala
-            </button>
+            </Button>
 
           </form>
         </div>
