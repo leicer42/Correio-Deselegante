@@ -1,14 +1,15 @@
 import { useParams } from 'react-router-dom';
 import { useState, FormEvent } from 'react';
 
-// import { RoomCode } from '../components/RoomCode';
+import { RoomCode } from '../components/RoomCode';
 import { useAuth } from '../hooks/useAuth';
 import { useRoom } from '../hooks/useRoom';
 import { Question } from '../components/Question'
 import { database } from '../services/firebase';
+import { Button } from '../components/Button'
 
 
-import logoImg from '../assets/images/logo.svg';
+import logoImg from '../assets/images/logo.png';
 import '../styles/room.scss';
 
 type RoomParams = {
@@ -66,17 +67,15 @@ export function Room() {
       <header>
 
         <div className="content">
-          <img
-            src={logoImg}
-            alt="Correio Deselegante" />
-          {/* <RoomCode code={roomId} /> */}
+          <img src={logoImg} alt="Correio Deselegante" />
+          <RoomCode code={roomId} />
         </div>
 
       </header>
 
       <main>
         <div className="room-title">
-          <h1>Sala {title}</h1>
+          <h1>Sala: {title}</h1>
           {questions.length > 0 && <span>{questions.length} pergunta(s)</span>}
         </div>
 
@@ -97,11 +96,10 @@ export function Room() {
               <span>Para enviar um recado, <button>faça seu login</button>.</span>
             )}
 
-            <button
+            <Button
               type="submit"
-              id="button-env"
               disabled={!user}
-            >Enviar pergunta</button>
+            >Enviar pergunta</Button>
           </div>
 
         </form>

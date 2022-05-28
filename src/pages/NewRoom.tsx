@@ -7,8 +7,8 @@ import { Button } from '../components/Button';
 
 import { useAuth } from '../hooks/useAuth';
 
-import illustrationImg from '../assets/images/illustration.svg';
-import logoImg from '../assets/images/logo.svg';
+import illustrationImg from '../assets/images/illustration.png';
+import logoImg from '../assets/images/logo.png';
 
 import '../styles/auth.scss';
 import '../styles/button.scss';
@@ -46,8 +46,9 @@ export function NewRoom() {
       <aside>
         <img src={illustrationImg} alt="Ilustração perguntas e respostas" />
 
-        <strong>Crie salas Q&amp;A ao vivo</strong>
-        <p>Tire suas duvidas em tempo real!</p>
+        <strong>Bem vindo ao Correio Deselegante</strong>
+        <p>Mande seu recadinho criando uma sala,</p>
+        <p>copie o link e envie pro(a) coleguinha :)</p>
 
       </aside>
 

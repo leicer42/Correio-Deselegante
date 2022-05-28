@@ -1,6 +1,6 @@
 import { useParams, useNavigate } from 'react-router-dom';
 
-// import { RoomCode } from '../components/RoomCode';
+import { RoomCode } from '../components/RoomCode';
 // import { useAuth } from '../hooks/useAuth';
 import { useRoom } from '../hooks/useRoom';
 import { Question } from '../components/Question'
@@ -9,7 +9,7 @@ import { Button } from '../components/Button';
 
 import checkImg from '../assets/images/check.svg';
 import answerImg from '../assets/images/answer.svg';
-import logoImg from '../assets/images/logo.svg';
+import logoImg from '../assets/images/logo.png';
 import deleteImg from '../assets/images/delete.svg';
 import '../styles/room.scss';
 
@@ -57,9 +57,12 @@ export function AdminRoom() {
     <div id="page-room">
       <header>
         <div className="content">
+
           <img src={logoImg} alt="Correio Deselegante" />
+          <RoomCode code={roomId} />
+
+
           <div>
-            {/* <RoomCode code={roomId} /> */}
             <Button isOutLined onClick={handleEndRoom}>Encerrar sala</Button>
           </div>
         </div>
@@ -67,7 +70,7 @@ export function AdminRoom() {
 
       <main>
         <div className="room-title">
-          <h1>Sala {title}</h1>
+          <h1>Sala: {title}</h1>
           {questions.length > 0 && <span>{questions.length} pergunta(s)</span>}
         </div>
 

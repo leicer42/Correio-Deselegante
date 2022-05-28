@@ -1,7 +1,7 @@
 import { useContext, useState, FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import illustrationImg from '../assets/images/illustration.png';
-import logoImg from '../assets/images/logo.svg';
+import logoImg from '../assets/images/logo.png';
 import googleIconImg from '../assets/images/google-icon.svg';
 import '../styles/auth.scss';
 import '../styles/button.scss';
@@ -56,8 +56,10 @@ export function Home() {
       <aside>
         <img src={illustrationImg} alt="Ilustração perguntas e respostas" />
 
-        <strong>Crie salas Q&amp;A ao vivo</strong>
-        <p>Tire suas duvidas em tempo real!</p>
+        <strong>Seja bem vindo,</strong>
+        <strong>Esse é o Correio Deselegante</strong>
+        <p>Crie ou entre em uma sala existente,
+          escreva sua mensagem, copie o código da sala e envie para o(a) coleguinha :)</p>
 
       </aside>
 
@@ -87,6 +89,6 @@ export function Home() {
           </form>
         </div>
       </main>
-    </div>
+    </div >
   )
 }
