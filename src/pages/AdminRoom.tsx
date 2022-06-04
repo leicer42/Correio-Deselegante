@@ -65,6 +65,7 @@ export function AdminRoom() {
           <div>
             <Button isOutLined onClick={handleEndRoom}>Encerrar sala</Button>
           </div>
+
         </div>
       </header>
 
